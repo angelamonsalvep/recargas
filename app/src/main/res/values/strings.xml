@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">Recargas</string>
+
+    <!-- string de login -->
+    <string name="login">Iniciar Sesión</string>
+    <string name="email">Correo</string>
+    <string name="password">Contraseña</string>
+    <string name="cancel">Cancelar</string>
+    <string name="confirm">Confirmar</string>
+    <string name="login_register_empty">Faltan datos del formulario</string>
+    <string name="bad_login">Email o contraseña incorrecta</string>
+    <string name="success_login">Bienvenido al sistema de recargas</string>
+    <string name="register_text">No tienes una cuenta aun? Registrate.</string>
+    <string name="pass_min">La clave ingresada no puede tener menos de 8 caracteres.</string>
+    <string name="message_email_no_exist">El correo ingresado no se ha registrado.</string>
+    <string name="message_pass_incorrect">La contraseña es incorrecta.</string>
+    <string name="message_no_users">No hay usuarios registrados.</string>
+
+    <!-- string de RegisterUser -->
+    <string name="register">Registar</string>
+    <string name="registerSuccesfull">¡¡Registro exitoso!!</string>
+
+    <!-- string de MainMenu -->
+    <string name="mainmenu">MENÚ PRINCIPAL</string>
+    <string name="recharge">RECARGAS</string>
+    <string name="exit">salir</string>
+
+    <!-- string de Recharges -->
+    <string name="phone">Número de celular</string>
+    <string name="confirmphone">Confirma el Número de celular</string>
+    <string name="amount">Monto a recargar</string>
+    <string name="confirmamount">Confirma el Monto a recargar</string>
+    <string name="operator">Selecciona el operador</string>
+    <string name="claro">claro</string>
+    <string name="movistar">movistar</string>
+    <string name="tigo">tigo</string>
+    <string name="wom">wom</string>
+    <string name="textamount">Se aceptan montos desde $1000 en adelante</string>
+    <string name="textoperator">Selecciona el operador</string>
+    <string name="confirmrecharge">Confirmar recarga</string>
+    <string name="amountsnotmatches">Los montos no coinciden</string>
+    <string name="phonenotmatches">Los números de celular no coinciden</string>
+    <string name="phonemin">El número de celular debe tener 10 digitos</string>
+    <string name="amountmin">Se aceptan montos desde $1000 en adelante.</string>
+    <string name="rechargesuccefull">Recarga exitosa.</string>
+
+
+</resources>
