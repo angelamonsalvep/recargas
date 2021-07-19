@@ -15,10 +15,12 @@
     <string name="message_email_no_exist">El correo ingresado no se ha registrado.</string>
     <string name="message_pass_incorrect">La contraseña es incorrecta.</string>
     <string name="message_no_users">No hay usuarios registrados.</string>
+    <string name="usernotexist">El correo ingresado no ha sido registrado.</string>
 
     <!-- string de RegisterUser -->
     <string name="register">Registar</string>
     <string name="registerSuccesfull">¡¡Registro exitoso!!</string>
+    <string name="messageEmailInvalid">Correo invalido</string>
 
     <!-- string de MainMenu -->
     <string name="mainmenu">MENÚ PRINCIPAL</string>

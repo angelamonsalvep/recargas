@@ -3,15 +3,16 @@ package com.example.recargas.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Parcelable;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.recargas.MainMenuActivity;
 import com.example.recargas.R;
 import com.example.recargas.models.User;
 
@@ -19,8 +20,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText email;
-    EditText password;
+    EditText etEmail;
+    EditText etPassword;
     Button submit;
     TextView registrationLink;
     int poss;
@@ -34,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
         // iniciacion de elementos de android
 
 
-        email = findViewById(R.id.login_email);
-        password = findViewById(R.id.login_password);
+        etEmail = findViewById(R.id.login_email);
+        etPassword = findViewById(R.id.login_password);
         submit = findViewById(R.id.login_submit);
         registrationLink = findViewById(R.id.login_register_link);
 
@@ -57,14 +58,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(listUsers.size()>0) {
 
 
-                    String data_email = email.getText().toString();
-                    String data_password = password.getText().toString();
+                    String data_email = etEmail.getText().toString();
+                    String data_password = etPassword.getText().toString();
                     User user = new User();
                     //añadir atributos a objeto user
                     user.emailUser= data_email;
@@ -72,23 +74,97 @@ public class MainActivity extends AppCompatActivity {
 
                     if (data_email.length() != 0 && data_password.length() != 0) {
 
-                        if(data_password.length() >= 8 ) {
-                            if(searchEmail(listUsers,user)==true) {
-                                if(compareStrings(listUsers.get(poss).passUser, data_password)==true) {
-                                    Toast.makeText(MainActivity.this, R.string.success_login, Toast.LENGTH_SHORT).show();
-                                    goToHome();
+                        int countbeforeatsign=0;
+                        int countatsign=0;
+                        int countafteratsign=0;
+                        int countdot=0;
 
 
+                            int n=0;
+                            while(n<data_email.length()-2) {
 
-                                } else {
-                                    Toast.makeText(MainActivity.this, R.string.message_pass_incorrect, Toast.LENGTH_SHORT).show();
+                                if(countatsign==1) {
+                                    countafteratsign++;
                                 }
+
+                                if(data_email.charAt(n)== ' ') {
+                                    Toast.makeText(MainActivity.this, R.string.messageEmailInvalid, Toast.LENGTH_SHORT).show();
+                                    break;
+                                } else {
+
+                                    if(data_email.charAt(n)!= '@') {
+                                        countbeforeatsign++;
+                                        if(data_email.charAt(n)=='.') {
+                                            countdot++;
+                                            if(countatsign==1) {
+                                                if(countafteratsign<5) {
+                                                    Toast.makeText(MainActivity.this, R.string.messageEmailInvalid, Toast.LENGTH_SHORT).show();
+                                                    break;
+                                                } else {
+                                                    if(n == data_email.length()-4) {
+                                                        if(data_email.charAt(n+1) == 'c' && data_email.charAt(n+2) == 'o'  && data_email.charAt(n+3) == 'm') {
+
+                                                            if(data_password.length() >= 8 ) {
+                                                                if(searchEmail(listUsers,user)==true) {
+                                                                    if(compareStrings(listUsers.get(poss).passUser, data_password)==true) {
+                                                                        Toast.makeText(MainActivity.this, R.string.success_login, Toast.LENGTH_SHORT).show();
+                                                                        goToHome();
+
+
+
+                                                                    } else {
+                                                                        Toast.makeText(MainActivity.this, R.string.message_pass_incorrect, Toast.LENGTH_SHORT).show();
+                                                                    }
+                                                                } else {
+                                                                    Toast.makeText(MainActivity.this, R.string.usernotexist, Toast.LENGTH_SHORT).show();
+
+                                                                }
+
+                                                            }
+                                                            else {
+                                                                Toast.makeText(MainActivity.this, R.string.pass_min, Toast.LENGTH_SHORT).show();
+                                                            }
+                                                            break;
+
+                                                        } else {
+                                                            Toast.makeText(MainActivity.this, R.string.messageEmailInvalid, Toast.LENGTH_SHORT).show();
+                                                            break;
+                                                        }
+                                                    } else {
+                                                            Toast.makeText(MainActivity.this, R.string.messageEmailInvalid, Toast.LENGTH_SHORT).show();
+                                                        break;
+                                                    }
+                                                }
+
+                                            }
+
+                                        }
+
+                                    } else {
+                                        if(countbeforeatsign<6) {
+                                            Toast.makeText(MainActivity.this, R.string.messageEmailInvalid, Toast.LENGTH_SHORT).show();
+                                            break;
+                                        } else {
+                                            countatsign++;
+                                        }
+                                    }
+
+                                }
+
+                                n++;
+
+
                             }
 
-                        }
-                        else {
-                            Toast.makeText(MainActivity.this, R.string.pass_min, Toast.LENGTH_SHORT).show();
-                        }
+                            if(countatsign>1 || countatsign==0) {
+                                Toast.makeText(MainActivity.this, R.string.messageEmailInvalid, Toast.LENGTH_SHORT).show();
+
+                            }
+                            if(countdot==0 || countdot>1) {
+                                Toast.makeText(MainActivity.this, R.string.messageEmailInvalid, Toast.LENGTH_SHORT).show();
+
+                            }
+
 
 
                     }
@@ -113,9 +189,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        email.setText("");
-        password.setText("");
-        email.requestFocus();
+        etEmail.setText("");
+        etPassword.setText("");
+        etEmail.requestFocus();
 
 
     }

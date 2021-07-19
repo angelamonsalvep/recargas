@@ -1,4 +1,4 @@
-package com.example.recargas;
+package com.example.recargas.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.recargas.Activities.MainActivity;
+import com.example.recargas.R;
 
 public class MainMenuActivity extends AppCompatActivity {
 

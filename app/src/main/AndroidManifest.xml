@@ -9,8 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Recargas">
-        <activity android:name=".Recharges"></activity>
-        <activity android:name=".MainMenuActivity" />
+        <activity android:name=".Activities.Recharges"></activity>
+        <activity android:name=".Activities.MainMenuActivity" />
         <activity android:name=".Activities.RegisterActivity" />
         <activity android:name=".Activities.MainActivity">
             <intent-filter>

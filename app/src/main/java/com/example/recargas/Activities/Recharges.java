@@ -1,11 +1,10 @@
-package com.example.recargas;
+package com.example.recargas.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
-import android.text.SpannableStringBuilder;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,9 +14,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.recargas.Activities.MainActivity;
-import com.example.recargas.Activities.RegisterActivity;
-import com.example.recargas.models.MyUtilities;
+import com.example.recargas.R;
 
 public class Recharges extends AppCompatActivity {
     Spinner spinner;
